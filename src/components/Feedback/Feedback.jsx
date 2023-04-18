@@ -1,31 +1,30 @@
+import PropTypes from 'prop-types';
 import './Feedback.css';
 
-class Feedback extends Comment {
-    state = {
-      good: 0,
-      neutral: 0,
-      bad: 0
-    }
-
-    render() {
-        return (
-           <div>
-                <p>Please leave feedback</p>
-                <ul>
-                    <li><button>Good</button></li>
-                    <li><button>Neutral</button></li>
-                    <li><button>Bad</button></li>
-                </ul>
-
-                <p>Statistics</p>
-                <ul>
-                    <li><p>Good: { this.state.good}</p></li>
-                    <li><p>Neutral: { this.state.neutral}</p></li>
-                    <li><p>Bad: {this.state.bad}</p></li>
-                </ul>
-            </div>
-        )
-    }
+const Feedback = ({ onLeaveFeedback, options }) => {
+    return (
+         <ul className='feedback-list'>
+            {options.map((option) => 
+                    <li key={option}>
+                        <button
+                            type='button'
+                            className='feedback-button'
+                            onClick={() => onLeaveFeedback(option)}>
+                            {option}
+                        </button>
+                    </li>
+            )}
+        </ul>
+    )
 }
+
+Feedback.propTypes = {
+    onLeaveFeedback: PropTypes.func.isRequired,
+    options: PropTypes.exact({
+        good: PropTypes.number.isRequired,
+        neutral: PropTypes.number.isRequired,
+        bad: PropTypes.number.isRequired,
+    })
+};
 
 export default Feedback;
