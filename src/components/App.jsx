@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import Section from "./Section/Section";
 import Feedback from "./Feedback/Feedback";
@@ -44,8 +43,8 @@ class App extends Component {
               good={good}
               neutral={neutral}
               bad={bad}
-              total={this.countTotalFeedback}
-              positiveFeedback={`${this.countPositiveFeedback}%`}
+              total={this.countTotalFeedback()}
+              positiveFeedback={`${this.countPositiveFeedback()}%`}
           />
           }
         </Section>
