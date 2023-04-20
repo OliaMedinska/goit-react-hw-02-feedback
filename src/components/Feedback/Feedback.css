@@ -1,0 +1,19 @@
+.feedback-list {
+  display: flex;
+  gap: 15px;
+}
+
+.feedback-button {
+  width: 70px;
+  height: 30px;
+  background-color: rgb(41, 75, 226);
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+}
+
+.feedback-button:hover,
+.feedback-button:focus {
+  background-color: rgb(73, 100, 221);
+  cursor: pointer;
+}
